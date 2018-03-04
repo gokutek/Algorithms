@@ -13,11 +13,11 @@
 函数返回分割后，这个界的索引。
 ===============================================================================
 */
-int partition(std::vector<int>& vec, int low, int high)
+size_t partition(std::vector<int>& vec, size_t low, size_t high)
 {
 	const int v = vec[low];
-	int i = low;
-	int j = high + 1;
+	size_t i = low;
+	size_t j = high + 1;
 
 	while (true) {
 		while (vec[++i] < v) {
@@ -39,11 +39,11 @@ int partition(std::vector<int>& vec, int low, int high)
 
 
 // 辅助函数
-void sort(std::vector<int>& vec, int low, int high)
+void sort(std::vector<int>& vec, size_t low, size_t high)
 {
 	if (high <= low) { return; }
-	int j = partition(vec, low, high);
-	sort(vec, low, j - 1);
+	size_t j = partition(vec, low, high);
+	sort(vec, low, j > 0 ? j - 1 : 0);
 	sort(vec, j + 1, high);
 }
 
@@ -51,6 +51,7 @@ void sort(std::vector<int>& vec, int low, int high)
 // 快速排序
 void sort(std::vector<int>& vec)
 {
+	if (vec.empty()) { return; }
 	// 先将数组元素随机打乱顺序
 	std::random_shuffle(vec.begin(), vec.end());
 	sort(vec, 0, vec.size() - 1);

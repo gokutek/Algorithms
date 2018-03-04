@@ -22,25 +22,25 @@ public:
 	}
 
 private:
-	void sort(std::vector<int>& vec, int low, int high)
+	void sort(std::vector<int>& vec, size_t low, size_t high)
 	{
 		if (high <= low) { return; }
-		int mid = low + (high - low) / 2;
+		size_t mid = low + (high - low) / 2;
 		// 将左右两部分元素分别排序，然后再归并
 		sort(vec, low, mid);
 		sort(vec, mid + 1, high);
 		merge(vec, low, high, mid);
 	}
 
-	void merge(std::vector<int>& vec, int low, int high, int mid)
+	void merge(std::vector<int>& vec, size_t low, size_t high, size_t mid)
 	{
 		// [low, mid]和(mid, high]都是有序的，将这两部分归并以确保[low, high]有序
-		for (int i = low; i <= high; ++i) {
+		for (size_t i = low; i <= high; ++i) {
 			vec_[i] = vec[i];
 		}
-		int i = low;
-		int j = mid + 1;
-		int idx = low;
+		size_t i = low;
+		size_t j = mid + 1;
+		size_t idx = low;
 		while (i <= mid || j <= high) {
 			if (i > mid) {
 				vec[idx++] = vec_[j++];

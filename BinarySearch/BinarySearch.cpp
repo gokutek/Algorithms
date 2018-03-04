@@ -11,12 +11,12 @@ vec必须已经排好序。
 下面的这个实现中，如果vec中存在多个val，返回的可能并不是第一个val的索引。
 ===============================================================================
 */
-int search(const std::vector<int>& vec, int val)
+size_t search(const std::vector<int>& vec, int val)
 {
-	int low = 0;
-	int high = vec.size();
+	size_t low = 0;
+	size_t high = vec.size();
 	while (low < high) {
-		int mid = (low + high) / 2;
+		size_t mid = (low + high) / 2;
 		if (vec[mid] == val) {
 			return mid; 
 		} else if (vec[mid] < val) {
@@ -41,8 +41,8 @@ int main()
 	std::sort(vec.begin(), vec.end());
 
 	for (size_t i = 0; i < vec.size(); ++i) {
-		int idx = search(vec, vec[i]);
-		assert(idx >= 0 && idx < (int)vec.size());
+		size_t idx = search(vec, vec[i]);
+		assert(idx >= 0 && idx < vec.size());
 		assert(vec[i] == vec[idx]);
 	}
 	return 0;

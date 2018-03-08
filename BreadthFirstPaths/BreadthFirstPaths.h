@@ -19,7 +19,7 @@ public:
 	// 是否存在到s到v的路径
 	bool HasPathTo(size_t v) const;
 
-	// 获取s到v的路径（非最短）
+	// 获取s到v的最短路径
 	std::vector<size_t> PathTo(size_t v) const;
 
 private:
@@ -65,6 +65,7 @@ inline void BreadthFirstPaths::BFS(const Graphs& G, size_t v)
 {
 	std::queue<size_t> vertices;
 	vertices.push(v);
+	marked_[v] = true;
 	while (!vertices.empty()) {
 		v = vertices.front();
 		vertices.pop();

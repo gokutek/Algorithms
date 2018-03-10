@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <limits>
+#include <set>
 #include "Graphs/Graphs.h"
 
 
@@ -26,6 +27,13 @@ public:
 	const std::vector<size_t>& GetCircle() const;
 
 private:
+	// 检查是否含有自环
+	bool HasSelfLoop(const Graphs& G);
+
+	// 检查是否含有平行边
+	bool HasParallelEdges(const Graphs& G);
+
+	// 深度优先搜索
 	void DFS(const Graphs& G, size_t v, size_t from);
 
 private:
@@ -38,6 +46,8 @@ private:
 
 inline Cycle::Cycle(const Graphs& G)
 {
+	if (HasSelfLoop(G) || HasParallelEdges(G)) { return; }
+
 	marked_.resize(G.V(), false);
 	edgeTo_.resize(G.V(), std::numeric_limits<size_t>::max());
 	for (size_t i = 0; i < G.V() && cycle_.empty(); ++i) {
@@ -57,6 +67,39 @@ inline bool Cycle::HasCycle() const
 inline const std::vector<size_t>& Cycle::GetCircle() const
 {
 	return cycle_;
+}
+
+
+inline bool Cycle::HasSelfLoop(const Graphs& G)
+{
+	for (size_t v = 0; v < G.V(); ++v) {
+		for (auto w : G.Adj(v)) {
+			if (w == v) {
+				cycle_.push_back(v);
+				cycle_.push_back(v);
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+
+inline bool Cycle::HasParallelEdges(const Graphs& G)
+{
+	for (size_t v = 0; v < G.V(); ++v) {
+		std::set<size_t> edges;
+		for (auto w : G.Adj(v)) {
+			if (edges.count(w)) {
+				cycle_.push_back(v);
+				cycle_.push_back(w);
+				cycle_.push_back(v);
+				return true; 
+			}
+			edges.insert(w);
+		}
+	}
+	return false;
 }
 
 

@@ -35,6 +35,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter4", "Chapter4", "{11
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter5", "Chapter5", "{E7F1F80A-4AC2-49A0-A806-339BDEFDB685}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SymbolGraph", "SymbolGraph\SymbolGraph.vcxproj", "{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4BACB3FB-AEFF-4779-8FFE-BA3D895755F8}"
+	ProjectSection(SolutionItems) = preProject
+		Common\string_utils.h = Common\string_utils.h
+		Common\string_utils.inl = Common\string_utils.inl
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -139,6 +147,14 @@ Global
 		{86ED23F9-6E8B-4E00-8EC9-1BB8BE29218A}.Release|x64.Build.0 = Release|x64
 		{86ED23F9-6E8B-4E00-8EC9-1BB8BE29218A}.Release|x86.ActiveCfg = Release|Win32
 		{86ED23F9-6E8B-4E00-8EC9-1BB8BE29218A}.Release|x86.Build.0 = Release|Win32
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Debug|x64.ActiveCfg = Debug|x64
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Debug|x64.Build.0 = Debug|x64
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Debug|x86.ActiveCfg = Debug|Win32
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Debug|x86.Build.0 = Debug|Win32
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Release|x64.ActiveCfg = Release|x64
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Release|x64.Build.0 = Release|x64
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Release|x86.ActiveCfg = Release|Win32
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,5 +172,6 @@ Global
 		{DDFCB941-FB45-4F55-A98F-5E17BF2DF780} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
 		{23A61816-7F33-4E54-8123-709876A8DC4F} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
 		{86ED23F9-6E8B-4E00-8EC9-1BB8BE29218A} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
+		{5F768922-7B6E-4A1E-B2B5-D4D282F88C6E} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
 	EndGlobalSection
 EndGlobal

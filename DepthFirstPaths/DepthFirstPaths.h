@@ -14,7 +14,7 @@
 class DepthFirstPaths
 {
 public:
-	DepthFirstPaths(const Graphs& G, size_t s);
+	DepthFirstPaths(Graphs const &G, size_t s);
 
 	// 是否存在到s到v的路径
 	bool HasPathTo(size_t v) const;
@@ -23,7 +23,7 @@ public:
 	std::vector<size_t> PathTo(size_t v) const;
 
 private:
-	void DFS(const Graphs& G, size_t v);
+	void DFS(Graphs const &G, size_t v);
 
 private:
 	std::vector<bool>	marked_;	///< 顶点的访问标志
@@ -33,7 +33,7 @@ private:
 
 
 
-inline DepthFirstPaths::DepthFirstPaths(const Graphs& G, size_t s)
+inline DepthFirstPaths::DepthFirstPaths(Graphs const &G, size_t s)
 	: start_(s)
 {
 	marked_.resize(G.V());
@@ -61,7 +61,7 @@ inline std::vector<size_t> DepthFirstPaths::PathTo(size_t v) const
 }
 
 
-inline void DepthFirstPaths::DFS(const Graphs& G, size_t v)
+inline void DepthFirstPaths::DFS(Graphs const &G, size_t v)
 {
 	marked_[v] = true;
 	for (auto w : G.Adj(v)) {

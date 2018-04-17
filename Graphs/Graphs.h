@@ -27,7 +27,7 @@ public:
 	void AddEdge(size_t v, size_t w);
 
 	// 获取该顶点的邻接点
-	const std::vector<size_t>& Adj(size_t v) const;
+	std::vector<size_t> const& Adj(size_t v) const;
 
 	// 获取该顶点的度
 	size_t Degree(size_t v) const;
@@ -36,7 +36,7 @@ public:
 	std::string ToString() const;
 
 private:
-	const size_t						V_;		///< 顶点个数
+	size_t const						V_;		///< 顶点个数
 	size_t								E_;		///< 边数
 	std::vector<std::vector<size_t>>	adj_;	///< 记录每个顶点相邻的顶点
 };
@@ -72,7 +72,7 @@ inline void Graphs::AddEdge(size_t v, size_t w)
 }
 
 
-inline const std::vector<size_t>& Graphs::Adj(size_t v) const
+inline std::vector<size_t> const& Graphs::Adj(size_t v) const
 {
 	assert(v < V_);
 	return adj_[v];

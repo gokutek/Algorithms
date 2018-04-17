@@ -14,7 +14,7 @@ class DepthFirstSearch
 {
 public:
 	// 找出图G中，与s连通的所有顶点
-	DepthFirstSearch(const Graphs& G, size_t s);
+	DepthFirstSearch(Graphs const &G, size_t s);
 
 	// v和s是否连通
 	bool Marked(size_t v) const;
@@ -23,7 +23,7 @@ public:
 	size_t Count() const;
 
 private:
-	void DFS(const Graphs& G, size_t v);
+	void DFS(Graphs const &G, size_t v);
 
 private:
 	std::vector<bool>	marked_;  ///< 访问标记，访问过就设为true
@@ -32,14 +32,14 @@ private:
 
 
 
-inline DepthFirstSearch::DepthFirstSearch(const Graphs& G, size_t s)
+inline DepthFirstSearch::DepthFirstSearch(Graphs const &G, size_t s)
 {
 	marked_.resize(G.V(), false);
 	DFS(G, s);
 }
 
 
-inline void DepthFirstSearch::DFS(const Graphs& G, size_t v)
+inline void DepthFirstSearch::DFS(Graphs const &G, size_t v)
 {
 	marked_[v] = true;
 	++count_;

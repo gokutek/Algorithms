@@ -14,7 +14,7 @@
 class BreadthFirstPaths
 {
 public:
-	BreadthFirstPaths(const Graphs& G, size_t s);
+	BreadthFirstPaths(Graphs const &G, size_t s);
 
 	// 是否存在到s到v的路径
 	bool HasPathTo(size_t v) const;
@@ -23,7 +23,7 @@ public:
 	std::vector<size_t> PathTo(size_t v) const;
 
 private:
-	void BFS(const Graphs& G, size_t v);
+	void BFS(Graphs const &G, size_t v);
 
 private:
 	std::vector<bool>	marked_;	///< 顶点的访问标志
@@ -33,10 +33,10 @@ private:
 
 
 
-inline BreadthFirstPaths::BreadthFirstPaths(const Graphs& G, size_t s)
+inline BreadthFirstPaths::BreadthFirstPaths(Graphs const &G, size_t s)
 	: start_(s)
 {
-	marked_.resize(G.V());
+	marked_.resize(G.V(), false);
 	edge_.resize(G.V());
 	BFS(G, s);
 }
@@ -61,7 +61,7 @@ inline std::vector<size_t> BreadthFirstPaths::PathTo(size_t v) const
 }
 
 
-inline void BreadthFirstPaths::BFS(const Graphs& G, size_t v)
+inline void BreadthFirstPaths::BFS(Graphs const &G, size_t v)
 {
 	std::queue<size_t> vertices;
 	vertices.push(v);

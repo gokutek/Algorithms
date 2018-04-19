@@ -2,13 +2,15 @@
 #define DIGRAPH_H
 
 #include <stdint.h>
+#include <assert.h>
 #include <vector>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 /*
 ===============================================================================
-有向图
+4.2.2：有向图
 ===============================================================================
 */
 class Digraph
@@ -16,6 +18,9 @@ class Digraph
 public:
 	// 创建一幅含有V个顶点但没有边的有向图
 	explicit Digraph(size_t V);
+
+	// 从文件中读取一幅有向图
+	explicit Digraph(std::string const &file);
 
 	// 顶点总数
 	size_t V() const;
@@ -36,7 +41,7 @@ public:
 	std::string ToString() const;
 
 private:
-	const size_t						V_;
+	size_t								V_;
 	size_t								E_;
 	std::vector<std::vector<size_t>>	adj_;
 };
@@ -47,6 +52,21 @@ inline Digraph::Digraph(size_t V)
 {
 	E_ = 0;
 	adj_.resize(V);
+}
+
+
+inline Digraph::Digraph(std::string const &file)
+{
+	std::ifstream ifs(file.c_str());
+	assert(ifs.is_open());
+	size_t E = 0;
+	ifs >> V_ >> E;
+	adj_.resize(V_);
+	for (size_t i = 0; i < E; ++i) {
+		size_t v, w;
+		ifs >> v >> w;
+		AddEdge(v, w);
+	}
 }
 
 

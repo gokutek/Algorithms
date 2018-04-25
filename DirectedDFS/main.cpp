@@ -11,6 +11,5 @@ int main(int argc, char *argv[])
 		bool const marked = dfs.Marked(i);
 		std::cout << source << " -> " << i << "： " << marked << std::endl;
 	}
-
 	return 0;
 }

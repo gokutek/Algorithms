@@ -49,6 +49,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectedDFS", "DirectedDFS\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DepthFirstDirectedPaths", "DepthFirstDirectedPaths\DepthFirstDirectedPaths.vcxproj", "{1E2069E6-7477-44FD-A484-C3270FD2E37C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BreadthFirstDirectedPaths", "BreadthFirstDirectedPaths\BreadthFirstDirectedPaths.vcxproj", "{1078FC6F-4A75-4442-8651-BDA5DEBD8471}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -185,6 +187,14 @@ Global
 		{1E2069E6-7477-44FD-A484-C3270FD2E37C}.Release|x64.Build.0 = Release|x64
 		{1E2069E6-7477-44FD-A484-C3270FD2E37C}.Release|x86.ActiveCfg = Release|Win32
 		{1E2069E6-7477-44FD-A484-C3270FD2E37C}.Release|x86.Build.0 = Release|Win32
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Debug|x64.ActiveCfg = Debug|x64
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Debug|x64.Build.0 = Debug|x64
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Debug|x86.ActiveCfg = Debug|Win32
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Debug|x86.Build.0 = Debug|Win32
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Release|x64.ActiveCfg = Release|x64
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Release|x64.Build.0 = Release|x64
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Release|x86.ActiveCfg = Release|Win32
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -206,5 +216,6 @@ Global
 		{1699DD49-825F-4829-8549-768E13046CEA} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
 		{4DE15DC8-1F6D-487B-A2F6-308DE1C3B702} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
 		{1E2069E6-7477-44FD-A484-C3270FD2E37C} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
+		{1078FC6F-4A75-4442-8651-BDA5DEBD8471} = {1162CD28-FC94-44E0-A410-BEA0BB75450A}
 	EndGlobalSection
 EndGlobal

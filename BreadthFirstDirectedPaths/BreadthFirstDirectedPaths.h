@@ -54,8 +54,7 @@ inline std::vector<size_t> BreadthFirstDirectedPaths::PathTo(size_t v) const
 {
 	std::vector<size_t> res;
 	assert(HasPathTo(v));
-	while (v != source_)
-	{
+	while (v != source_) {
 		res.push_back(v);
 		v = edgeTo_[v];
 	}

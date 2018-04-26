@@ -70,10 +70,12 @@ void DirectedCycle::DFS(Digraph const &G, size_t v)
 			edgeTo_[w] = v;
 			DFS(G, w);
 		} else if (onStack_[w]) {
-			while (v != w) {
-				cycle_.push_back(v);
-				v = edgeTo_[v];
+			for (size_t x = v; x != w; x = edgeTo_[x]) {
+				cycle_.push_back(x);
 			}
+			cycle_.push_back(w);
+			cycle_.push_back(v);
+			std::reverse(cycle_.begin(), cycle_.end());
 		}
 	}
 	onStack_[v] = false;

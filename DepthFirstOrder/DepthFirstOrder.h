@@ -8,21 +8,22 @@
 
 /*
 ===============================================================================
-有向图的深度优先搜索，增加了pre_、post_、reversePost_三个数据结构来记录DFS的轨迹。
+4.2.4.2：有向图的深度优先搜索。
+增加了pre_、post_、reversePost_三个数据结构来记录DFS的轨迹。
 拓扑排序时，依赖本算法。
 ===============================================================================
 */
 class DepthFirstOrder
 {
 public:
-	DepthFirstOrder(Digraph &G);
+	DepthFirstOrder(Digraph const &G);
 
 	std::queue<size_t> const & PreOrder() const;
 	std::queue<size_t> const & PostOrder() const;
 	std::stack<size_t> const & ReversePostOrder() const;
 
 private:
-	void DFS(Digraph &G, size_t v);
+	void DFS(Digraph const &G, size_t v);
 
 private:
 	std::vector<size_t>	marked_;
@@ -33,7 +34,7 @@ private:
 
 
 
-inline DepthFirstOrder::DepthFirstOrder(Digraph &G)
+inline DepthFirstOrder::DepthFirstOrder(Digraph const &G)
 {
 	marked_.resize(G.V(), false);
 	for (size_t v = 0; v < G.V(); ++v) {
@@ -44,7 +45,7 @@ inline DepthFirstOrder::DepthFirstOrder(Digraph &G)
 }
 
 
-inline void DepthFirstOrder::DFS(Digraph &G, size_t v)
+inline void DepthFirstOrder::DFS(Digraph const &G, size_t v)
 {
 	marked_[v] = true;
 	pre_.push(v);

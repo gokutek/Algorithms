@@ -8,6 +8,11 @@
 #include "Digraph/Digraph.h"
 #include "Common/string_utils.h"
 
+/*
+===============================================================================
+同SymbolGraph类似，唯一的区别就是Digraph代替了Graph
+===============================================================================
+*/
 class SymbolDigraph
 {
 public:

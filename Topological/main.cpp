@@ -9,8 +9,7 @@ int main()
 	Topological top(sg.GetGraph());
 	auto &order = top.GetOrder();
 	for (auto v : order) {
-		std::cout << sg.NameOf(v) << std::endl;
+		std::cout << v << ": " << sg.NameOf(v) << std::endl;
 	}
-	std::cout << std::endl;
 	return 0;
 }

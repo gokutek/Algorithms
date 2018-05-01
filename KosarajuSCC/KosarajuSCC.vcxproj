@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{05432CD2-5807-431D-88CC-C91B02796653}</ProjectGuid>
+    <ProjectGuid>{4C693DF2-AAEC-4979-90C7-858EDBFC752A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>KosarajuCC</RootNamespace>
+    <RootNamespace>KosarajuSCC</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -153,7 +153,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="KosarajuCC.h" />
+    <ClInclude Include="KosarajuSCC.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,10 +13,10 @@
 计算有向图中，所有的强连通分量。
 ===============================================================================
 */
-class KosarajuCC
+class KosarajuSCC
 {
 public:
-	explicit KosarajuCC(Digraph const &G);
+	explicit KosarajuSCC(Digraph const &G);
 	
 	// v和w是强连通的吗？
 	bool StronglyConnected(size_t v, size_t w) const;
@@ -38,7 +38,7 @@ private:
 
 
 
-inline KosarajuCC::KosarajuCC(Digraph const &G)
+inline KosarajuSCC::KosarajuSCC(Digraph const &G)
 {
 	marked_.resize(G.V(), false);
 	id_.resize(G.V(), std::numeric_limits<size_t>::max());
@@ -54,7 +54,7 @@ inline KosarajuCC::KosarajuCC(Digraph const &G)
 }
 
 
-inline void KosarajuCC::DFS(Digraph const &G, size_t v)
+inline void KosarajuSCC::DFS(Digraph const &G, size_t v)
 {
 	marked_[v] = true;
 	id_[v] = count_;
@@ -67,19 +67,19 @@ inline void KosarajuCC::DFS(Digraph const &G, size_t v)
 }
 
 
-inline bool KosarajuCC::StronglyConnected(size_t v, size_t w) const
+inline bool KosarajuSCC::StronglyConnected(size_t v, size_t w) const
 {
 	return id_[v] == id_[w];
 }
 
 
-inline size_t KosarajuCC::Count() const
+inline size_t KosarajuSCC::Count() const
 {
 	return count_;
 }
 
 
-inline size_t KosarajuCC::Id(size_t v) const
+inline size_t KosarajuSCC::Id(size_t v) const
 {
 	return id_[v];
 }

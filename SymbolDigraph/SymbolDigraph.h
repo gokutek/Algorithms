@@ -18,7 +18,7 @@ class SymbolDigraph
 public:
 	SymbolDigraph(const std::string& filename, char delimiter);
 	bool Contains(const std::string& s);
-	int IndexOf(const std::string& s);
+	size_t IndexOf(const std::string& s);
 	std::string NameOf(size_t v);
 	Digraph const & GetGraph();
 

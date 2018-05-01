@@ -40,7 +40,7 @@ inline bool SymbolDigraph::Contains(const std::string& s)
 }
 
 
-inline int SymbolDigraph::IndexOf(const std::string& s)
+inline size_t SymbolDigraph::IndexOf(const std::string& s)
 {
 	assert(Contains(s));
 	return st_[s];

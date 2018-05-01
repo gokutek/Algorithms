@@ -31,9 +31,9 @@ private:
 	void DFS(Digraph const &G, size_t v);
 
 private:
-	std::vector<bool>	marked_;
-	std::vector<size_t>	id_;
-	int					count_;
+	std::vector<bool>	marked_;	///< 顶点访问标识
+	std::vector<size_t>	id_;		///< 每个顶点所在的连通分量标识符
+	int					count_;		///< 连通分量总数
 };
 
 

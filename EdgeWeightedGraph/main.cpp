@@ -3,5 +3,6 @@
 
 int main()
 {
+	EdgeWeightedGraph g("../data/tinyEWG.txt");
 	return 0;
 }

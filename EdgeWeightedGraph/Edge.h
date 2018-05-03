@@ -23,10 +23,12 @@ public:
 
 	std::string ToString() const;
 
+	bool operator<(Edge const &other) const;
+
 private:
-	const size_t	v_;			// 顶点之一
-	const size_t	w_;			// 另一个顶点
-	const double	weight_;	// 边的权重
+	size_t	v_;			// 顶点之一
+	size_t	w_;			// 另一个顶点
+	double	weight_;	// 边的权重
 };
 
 
@@ -64,6 +66,12 @@ inline std::string Edge::ToString() const
 	char buffer[64];
 	sprintf_s(buffer, "%d-%d %.5f", v_, w_, weight_);
 	return buffer;
+}
+
+
+inline bool Edge::operator<(Edge const &other) const
+{
+	return this->weight_ < other.weight_;
 }
 
 #endif // EDGE_H

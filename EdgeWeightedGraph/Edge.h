@@ -24,6 +24,8 @@ public:
 	std::string ToString() const;
 
 	bool operator<(Edge const &other) const;
+	
+	bool operator>(Edge const &other) const;
 
 private:
 	size_t	v_;			// 顶点之一
@@ -72,6 +74,12 @@ inline std::string Edge::ToString() const
 inline bool Edge::operator<(Edge const &other) const
 {
 	return this->weight_ < other.weight_;
+}
+
+
+inline bool Edge::operator>(Edge const &other) const
+{
+	return this->weight_ > other.weight_;
 }
 
 #endif // EDGE_H

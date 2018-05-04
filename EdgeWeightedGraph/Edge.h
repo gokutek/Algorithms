@@ -13,6 +13,8 @@
 class Edge
 {
 public:
+	Edge();
+
 	Edge(size_t v, size_t w, double weight);
 
 	double Weight() const;
@@ -32,6 +34,12 @@ private:
 	size_t	w_;			// 另一个顶点
 	double	weight_;	// 边的权重
 };
+
+
+inline Edge::Edge()
+	: Edge(std::numeric_limits<size_t>::max(), std::numeric_limits<size_t>::max(), 0)
+{
+}
 
 
 inline Edge::Edge(size_t v, size_t w, double weight)

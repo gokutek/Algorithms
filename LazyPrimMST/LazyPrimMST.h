@@ -21,6 +21,9 @@ class LazyPrimMST
 public:
 	LazyPrimMST(EdgeWeightedGraph const &G);
 
+	// 最小生成树的所有边
+	std::vector<Edge> const& Edges() const;
+
 	// 最小生成树的权重
 	double Weight() const;
 
@@ -29,7 +32,7 @@ private:
 
 private:
 	std::vector<bool>	marked_;	// 顶点是否在树中
-	std::queue<Edge>	mst_;		// 最小生成树的边
+	std::vector<Edge>	mst_;		// 最小生成树的边
 	MinPQ<Edge>			pq_;		// 横切边（包括失效的边），按照权重从小到大排序
 	double				weight_;	// 权重
 };
@@ -46,7 +49,7 @@ inline LazyPrimMST::LazyPrimMST(EdgeWeightedGraph const &G)
 		size_t const v = e.Either();
 		size_t const w = e.Other(v);
 		if (marked_[v] && marked_[w]) { continue; }
-		mst_.push(e);
+		mst_.push_back(e);
 		weight_ += e.Weight();
 		if (!marked_[v]) { Visit(G, v); }
 		if (!marked_[w]) { Visit(G, w); }
@@ -62,6 +65,12 @@ void LazyPrimMST::Visit(EdgeWeightedGraph const &G, size_t v)
 			pq_.push(e);
 		}
 	}
+}
+
+
+inline std::vector<Edge> const& LazyPrimMST::Edges() const
+{
+	return mst_;
 }
 
 

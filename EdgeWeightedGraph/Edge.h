@@ -66,7 +66,7 @@ inline size_t Edge::Other(size_t v) const
 inline std::string Edge::ToString() const
 {
 	char buffer[64];
-	sprintf_s(buffer, "%d-%d %.5f", v_, w_, weight_);
+	sprintf_s(buffer, "%zd-%zd %.5f", v_, w_, weight_);
 	return buffer;
 }
 

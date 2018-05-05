@@ -48,28 +48,28 @@ private:
 
 
 template<typename T>
-MinPQ<T>::MinPQ(size_t initCapacity)
+inline MinPQ<T>::MinPQ(size_t initCapacity)
 {
 	pq_.reserve(initCapacity);
 }
 
 
 template<typename T>
-bool MinPQ<T>::IsEmpty() const
+inline bool MinPQ<T>::IsEmpty() const
 {
 	return pq_.empty();
 }
 
 
 template<typename T>
-size_t MinPQ<T>::Size() const
+inline size_t MinPQ<T>::Size() const
 {
 	return pq_.size();
 }
 
 
 template<typename T>
-T& MinPQ<T>::Min() const
+inline T& MinPQ<T>::Min() const
 {
 	assert(!IsEmpty());
 	return pq_[0];
@@ -77,7 +77,7 @@ T& MinPQ<T>::Min() const
 
 
 template<typename T>
-void MinPQ<T>::Insert(T const &value)
+inline void MinPQ<T>::Insert(T const &value)
 {
 	pq_.push_back(value);
 	Swim(pq_.size() - 1);
@@ -85,7 +85,7 @@ void MinPQ<T>::Insert(T const &value)
 
 
 template<typename T>
-void MinPQ<T>::Swim(size_t k)
+inline void MinPQ<T>::Swim(size_t k)
 {
 	// k的父节点为：(k - 1) / 2
 	assert(k < pq_.size());
@@ -97,7 +97,7 @@ void MinPQ<T>::Swim(size_t k)
 
 
 template<typename T>
-T MinPQ<T>::DelMin()
+inline T MinPQ<T>::DelMin()
 {
 	assert(!IsEmpty());
 	T const val = pq_[0];
@@ -109,7 +109,7 @@ T MinPQ<T>::DelMin()
 
 
 template<typename T>
-void MinPQ<T>::Sink(size_t k)
+inline void MinPQ<T>::Sink(size_t k)
 {
 	// k的两个子节点为：k * 2 + 1, k * 2 + 2
 	while (k * 2 + 1 < pq_.size()) {

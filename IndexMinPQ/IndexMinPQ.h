@@ -121,10 +121,10 @@ inline void IndexMinPQ<T>::Delete(size_t k)
 {
 	assert(Contains(k));
 	size_t const index = qp_[k];
-	qp_[k] = std::numeric_limits<size_t>::max();
 	Exchange(index, n_--);
 	Swim(index);
 	Sink(index);
+	qp_[k] = std::numeric_limits<size_t>::max();
 }
 
 

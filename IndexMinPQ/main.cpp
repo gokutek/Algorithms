@@ -17,6 +17,17 @@ int main()
 		pq.Insert(i, vec[i]);
 	}
 
+	for (size_t i = 0; i < 10; ++i) {
+		pq.Delete(rand() % vec.size());
+	}
+
+	size_t count = 0;
+	for (size_t i = 0; i < vec.size(); ++i) {
+		count += (pq.Contains(i) ? 1 : 0);
+	}
+
+	assert(count == 90);
+
 	while (!pq.IsEmpty()) {
 		std::cout << pq.MinIndex() << ": " << pq.MinKey() << std::endl;
 		assert(vec[pq.MinIndex()] == pq.MinKey());

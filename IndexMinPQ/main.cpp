@@ -17,8 +17,12 @@ int main()
 		pq.Insert(i, vec[i]);
 	}
 
-	for (size_t i = 0; i < 10; ++i) {
-		pq.Delete(rand() % vec.size());
+	for (size_t i = 0; i < 10; ) {
+		size_t const k = rand() % vec.size();
+		if (pq.Contains(k)) {
+			pq.Delete(k);
+			++i;
+		}
 	}
 
 	size_t count = 0;

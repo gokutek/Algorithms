@@ -9,6 +9,11 @@
 #include "EdgeWeightedGraph/EdgeWeightedGraph.h"
 #include "IndexMinPQ/IndexMinPQ.h"
 
+/*
+===============================================================================
+4.3.5: Prim算法的即时实现
+===============================================================================
+*/
 class PrimMST
 {
 public:

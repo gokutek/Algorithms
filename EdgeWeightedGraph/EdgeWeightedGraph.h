@@ -36,10 +36,13 @@ public:
 	// 顶点v的度
 	size_t Degree(size_t v) const;
 
+	// 图中的所有边
+	std::list<Edge> Edges() const;
+
 private:
 	size_t							V_;		// 顶点数
 	size_t							E_;		// 边数
-	std::vector<std::list<Edge> >	adj_;	// 领接表
+	std::vector<std::list<Edge> >	adj_;	// 邻接表
 };
 
 
@@ -51,7 +54,7 @@ inline EdgeWeightedGraph::EdgeWeightedGraph(size_t V)
 }
 
 
-EdgeWeightedGraph::EdgeWeightedGraph(std::string const &file)
+inline EdgeWeightedGraph::EdgeWeightedGraph(std::string const &file)
 {
 	std::ifstream ifs(file.c_str());
 	assert(ifs.is_open());
@@ -88,15 +91,33 @@ inline void EdgeWeightedGraph::AddEdge(Edge const &e)
 }
 
 
-std::list<Edge> const& EdgeWeightedGraph::Adj(size_t v) const
+inline std::list<Edge> const& EdgeWeightedGraph::Adj(size_t v) const
 {
 	return adj_[v];
 }
 
 
-size_t EdgeWeightedGraph::Degree(size_t v) const
+inline size_t EdgeWeightedGraph::Degree(size_t v) const
 {
 	return adj_[v].size();
+}
+
+
+inline std::list<Edge> EdgeWeightedGraph::Edges() const
+{
+	std::list<Edge> edges;
+	for (size_t v = 0; v < V_; ++v) {
+		int selfLoops = 0;
+		for (Edge const &e : Adj(v)) {
+			if (e.Other(v) > v) {
+				edges.push_back(e);
+			} else if (e.Other(v) == v) {
+				if (selfLoops % 2 == 0) { edges.push_back(e); }
+				++selfLoops;
+			}
+		}
+	}
+	return edges;
 }
 
 #endif // EDGE_WEIGHTED_GRAPH_H

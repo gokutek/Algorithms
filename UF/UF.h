@@ -12,12 +12,16 @@ class UF
 public:
 	explicit UF(size_t n);
 
+	// p（0到n-1）所在的分量的标识
 	size_t Find(size_t p);
 
+	// 连通分量的数量
 	size_t Count() const;
 
+	// p和q是否存在于同一个分量中
 	bool Connected(size_t p, size_t q);
 
+	// 在p和q之间添加一条连接
 	void Union(size_t p, size_t q);
 
 private:

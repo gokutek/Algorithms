@@ -5,23 +5,35 @@
 #include <list>
 #include "DirectedEdge.h"
 
+/*
+===============================================================================
+4.4.2：加权有向图的数据结构
+===============================================================================
+*/
 class EdgeWeightedDigraph
 {
 public:
 	explicit EdgeWeightedDigraph(size_t V);
 
+	// 添加一条边
 	void AddEdge(DirectedEdge const &e);
 
+	// 顶点数
 	size_t V() const;
 
+	// 边数
 	size_t E() const;
 
+	// 从顶点v指出的边
 	std::list<DirectedEdge> const& Adj(size_t v) const;
 
+	// 顶点v的出度
 	size_t OutDegree(size_t v) const;
 
+	// 顶点v的入度
 	size_t InDegree(size_t v) const;
 
+	// 所有边
 	std::list<DirectedEdge> Edges() const;
 
 private:
@@ -36,7 +48,7 @@ inline EdgeWeightedDigraph::EdgeWeightedDigraph(size_t V)
 {
 	V_ = V;
 	E_ = 0;
-	adj_.resize	(V);
+	adj_.resize(V);
 	inDegree_.resize(V, 0);
 }
 

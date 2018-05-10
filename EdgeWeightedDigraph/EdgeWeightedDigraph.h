@@ -1,8 +1,11 @@
 ﻿#ifndef EDGE_WEIGHTED_DIGRAPH_H
 #define EDGE_WEIGHTED_DIGRAPH_H
 
+#include <assert.h>
 #include <vector>
 #include <list>
+#include <string>
+#include <fstream>
 #include "DirectedEdge.h"
 
 /*
@@ -13,7 +16,11 @@
 class EdgeWeightedDigraph
 {
 public:
+	// 构造一个含有V个顶点的图
 	explicit EdgeWeightedDigraph(size_t V);
+
+	// 从文件中加载图
+	explicit EdgeWeightedDigraph(std::string const &file);
 
 	// 添加一条边
 	void AddEdge(DirectedEdge const &e);
@@ -50,6 +57,24 @@ inline EdgeWeightedDigraph::EdgeWeightedDigraph(size_t V)
 	E_ = 0;
 	adj_.resize(V);
 	inDegree_.resize(V, 0);
+}
+
+
+inline EdgeWeightedDigraph::EdgeWeightedDigraph(std::string const &file)
+{
+	std::ifstream ifs(file.c_str());
+	assert(ifs.is_open());
+	size_t E = 0;
+	ifs >> V_ >> E;
+	adj_.resize(V_);
+	inDegree_.resize(V_, 0);
+	for (size_t i = 0; i < E; ++i)
+	{
+		size_t v, w;
+		double weight;
+		ifs >> v >> w >> weight;
+		AddEdge(DirectedEdge(v, w, weight));
+	}
 }
 
 

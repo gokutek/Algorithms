@@ -1,0 +1,3 @@
+[submodule "ThirdParty/algs4"]
+	path = ThirdParty/algs4
+	url = https://github.com/gokutek/algs4.git

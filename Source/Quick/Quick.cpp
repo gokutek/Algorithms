@@ -3,6 +3,7 @@
 #include <vector>
 #include <assert.h>
 #include <time.h>
+#include <random>
 
 
 /*
@@ -52,8 +53,12 @@ void sort(std::vector<int>& vec, size_t low, size_t high)
 void sort(std::vector<int>& vec)
 {
 	if (vec.empty()) { return; }
+
 	// 先将数组元素随机打乱顺序
-	std::random_shuffle(vec.begin(), vec.end());
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::shuffle(vec.begin(), vec.end(), g);
+
 	sort(vec, 0, vec.size() - 1);
 }
 

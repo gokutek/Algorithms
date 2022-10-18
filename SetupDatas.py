@@ -5,7 +5,7 @@ import os
 def unzip_file(zipfilename):
     txtfilepath = "Datas/"+zipfilename+".txt"
     if os.path.exists(txtfilepath):
-        print(txtfilepath+"exist, skip")
+        print(txtfilepath+" exist already,skip")
     else:
         os.system('ThirdParty\\7z\\7z.exe e Datas\\'+zipfilename+'.7z -o"Datas\\"')
         print("unzip "+zipfilename+" done")

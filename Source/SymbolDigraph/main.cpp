@@ -1,7 +1,8 @@
 ﻿#include "SymbolDigraph.h"
+#include "data_file.h"
 
 int main()
 {
-	SymbolDigraph sg("../data/jobs.txt", '/');
+	SymbolDigraph sg(get_data_file_path("jobs.txt"), '/');
 	return 0;
 }

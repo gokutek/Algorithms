@@ -2,11 +2,11 @@
 #include <assert.h>
 #include <fstream>
 #include "DepthFirstPaths.h"
-
+#include "data_file.h"
 
 int main()
 {
-	std::ifstream ifs("../data/tinyCG.txt");
+	std::ifstream ifs(get_data_file_path("tinyCG.txt"));
 	assert(ifs.is_open());
 	size_t V;
 	ifs >> V;

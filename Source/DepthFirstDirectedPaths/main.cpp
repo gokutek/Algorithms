@@ -1,10 +1,11 @@
 ﻿#include <algorithm>
 #include <iostream>
 #include "DepthFirstDirectedPaths.h"
+#include "data_file.h"
 
 int main()
 {
-	Digraph DG("../data/tinyDG.txt");
+	Digraph DG(get_data_file_path("tinyDG.txt"));
 	size_t const source = 9;
 	DepthFirstDirectedPaths path(DG, source);
 	for (size_t i = 0; i < DG.V(); ++i)

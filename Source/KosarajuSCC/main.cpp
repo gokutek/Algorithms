@@ -1,9 +1,10 @@
 ﻿#include <iostream>
 #include "KosarajuSCC.h"
+#include "data_file.h"
 
 int main()
 {
-	Digraph digraph("../data/tinyDG.txt");
+	Digraph digraph(get_data_file_path("tinyDG.txt"));
 	KosarajuSCC cc(digraph);
 
 	std::vector<std::vector<size_t> > components(cc.Count());

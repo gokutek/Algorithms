@@ -2,13 +2,13 @@
 #include <fstream>
 #include <iostream>
 #include "Cycle.h"
-
+#include "data_file.h"
 
 int main()
 {
 	// 从文件中反序列化创建图
 	{
-		std::ifstream ifs("../data/tinyG.txt");
+		std::ifstream ifs(get_data_file_path("tinyG.txt"));
 		assert(ifs.is_open());
 		size_t V;
 		ifs >> V;

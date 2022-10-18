@@ -1,9 +1,10 @@
 ﻿#include <iostream>
 #include "LazyPrimMST.h"
+#include "data_file.h"
 
 int main()
 {
-	EdgeWeightedGraph g("../data/tinyEWG.txt");
+	EdgeWeightedGraph g(get_data_file_path("tinyEWG.txt"));
 	LazyPrimMST mst(g);
 	std::cout << "weight: " << mst.Weight() << std::endl;
 	auto &edges = mst.Edges();
